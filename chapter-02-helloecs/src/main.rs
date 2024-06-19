@@ -9,6 +9,7 @@ struct Position {
     y: i32,
 }
 
+//可渲染的东西
 #[derive(Component)]
 struct Renderable {
     glyph: rltk::FontCharType,
@@ -22,6 +23,7 @@ struct LeftMover {}
 #[derive(Component, Debug)]
 struct Player {}
 
+//存储世界的地方
 struct State {
     ecs: World
 }
@@ -101,6 +103,7 @@ fn main() -> rltk::BError {
     gs.ecs.register::<LeftMover>();
     gs.ecs.register::<Player>();
 
+    //创建一个玩家实体
     gs.ecs
         .create_entity()
         .with(Position { x: 40, y: 25 })
